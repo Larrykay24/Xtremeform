@@ -67,7 +67,7 @@
                 </div>
             <div class="mb-3">
                     <label for="tool" class="form-label">What do you do?</label>
-                    <select class="form-select" id="tool" name="tool" required>
+                    <select class="form-select" id="tool" name="tool" required multiple size="3">
             <option value="Adobe After Effects"> Adobe After Effects</option>
                 <option value="Adobe Audition"> Adobe Audition</option>
                 <option value="Adobe Dreamweaver"> Adobe Dreamweaver</option>
@@ -106,7 +106,7 @@
             </div>
             <div class="mb-3">
                     <label for="work" class="form-label">What is your profession?</label>
-                    <select class="form-select" id="work" name="work" required>
+                    <select class="form-select" id="work" name="work" required multiple size="3">
             <option value="Graphics Designer"> Graphics Designer</option>
                 <option value="Web Developer"> Web Developer</option>
                 <option value="UI/UX Designer"> UI/UX Designer</option>
@@ -168,6 +168,20 @@
                 submitBtn.innerText = "Something went wrong";
             });
     });
+
+document.getElementById("tool").addEventListener("change", function() {
+    let selectedOptions = Array.from(this.selectedOptions);
+    if (selectedOptions.length > 3) {
+        this.value = Array.from(this.selectedOptions).slice(0, 3).map(option => option.value);
+    }
+});
+
+document.getElementById("work").addEventListener("change", function() {
+    let selectedOptions = Array.from(this.selectedOptions);
+    if (selectedOptions.length > 3) {
+        this.value = Array.from(this.selectedOptions).slice(0, 3).map(option => option.value);
+    }
+});
     </script>
 </body>
 </html>
