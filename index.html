@@ -154,8 +154,8 @@
             email: contactForm.email.value,
             address: contactForm.address.value,
             dob: contactForm.dob.value,
-            tool: contactForm.tool.value,
-            work: contactForm.work.value,
+                tool: Array.from(contactForm.tool.selectedOptions).map(option => option.value),
+    work: Array.from(contactForm.work.selectedOptions).map(option => option.value),
             message: contactForm.message.value
         };
 
